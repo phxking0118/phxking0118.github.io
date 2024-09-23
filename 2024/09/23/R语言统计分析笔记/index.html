@@ -27,8 +27,13 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240921160625545.png">
 <meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240921171143056.png">
+<meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240923144536575.png">
+<meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240923145251952.png">
+<meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240923150041002.png">
+<meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240923152121237.png">
+<meta property="og:image" content="http://example.com/2024/09/21/hello-world/age-20240923152317343.png">
 <meta property="article:published_time" content="2024-09-23T05:15:13.000Z">
-<meta property="article:modified_time" content="2024-09-23T05:16:22.501Z">
+<meta property="article:modified_time" content="2024-09-23T07:24:31.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2024/09/21/hello-world/age-20240921160625545.png">
@@ -268,8 +273,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-09-23 13:16:22</span>
-            <span class="mobile">2024-09-23 13:16:22</span>
+            <span class="desktop">2024-09-23 15:24:31</span>
+            <span class="mobile">2024-09-23 15:24:31</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -280,12 +285,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>844 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.7k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 Mins</span>
         </span>
     
     
@@ -324,7 +329,8 @@
 <p>白噪声检验发现p值较小，说明序列不是白噪声，存在进一步分析的意义</p>
 <div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Box<span class="operator">-</span>Ljung test</span><br><span class="line"></span><br><span class="line">data<span class="operator">:</span>  nxts</span><br><span class="line">X<span class="operator">-</span>squared <span class="operator">=</span> <span class="number">23007</span><span class="punctuation">,</span> df <span class="operator">=</span> <span class="number">1</span><span class="punctuation">,</span> p<span class="operator">-</span>value <span class="operator">&lt;</span><span class="number">2.2e-16</span></span><br></pre></td></tr></table></figure></div>
 
-<h4 id="自相关与偏自相关图"><a href="#自相关与偏自相关图" class="headerlink" title="自相关与偏自相关图"></a>自相关与偏自相关图</h4><div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">acf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后acf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br><span class="line">pacf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后pacf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="自相关与偏自相关图"><a href="#自相关与偏自相关图" class="headerlink" title="自相关与偏自相关图"></a>自相关与偏自相关图</h4><p>acf确定MA，pacf确定AR</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">acf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后acf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br><span class="line">pacf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后pacf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
 
 <h4 id="模型拟合"><a href="#模型拟合" class="headerlink" title="模型拟合"></a>模型拟合</h4><p>事实上可以通过auto.arima函数自动拟合阶数，加上trace&#x3D;T查看拟合优化细节，并通过accuracy查询拟合精度。</p>
 <div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fit<span class="operator">&lt;-</span>auto.arima<span class="punctuation">(</span>hk0001<span class="operator">$</span>open<span class="punctuation">)</span></span><br><span class="line">fit </span><br><span class="line">arima<span class="operator">&lt;-</span>auto.arima<span class="punctuation">(</span>hk0001<span class="operator">$</span>open<span class="punctuation">,</span>trace<span class="operator">=</span><span class="built_in">T</span><span class="punctuation">)</span></span><br><span class="line">accuracy<span class="punctuation">(</span>fit<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
@@ -357,6 +363,89 @@
                      data-src="/2024/09/21/hello-world/age-20240921171143056.png"
                      
                 ></p>
+<h3 id="ARIMA-GARCH模型"><a href="#ARIMA-GARCH模型" class="headerlink" title="ARIMA-GARCH模型"></a>ARIMA-GARCH模型</h3><p>这里为了计算的快速，改用日频的数据进行计算，导入数据并做ARIMA的过程省略如下：</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>RMySQL<span class="punctuation">)</span></span><br><span class="line">channel <span class="operator">&lt;-</span> dbConnect<span class="punctuation">(</span>MySQL<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                     user<span class="operator">=</span><span class="string">&quot;root&quot;</span><span class="punctuation">,</span> <span class="comment">#用户名</span></span><br><span class="line">                     password<span class="operator">=</span><span class="string">&quot;jin1234&quot;</span><span class="punctuation">,</span> <span class="comment">#密码</span></span><br><span class="line">                     dbname<span class="operator">=</span><span class="string">&quot;stock_date&quot;</span><span class="punctuation">,</span> <span class="comment">#数据库名称</span></span><br><span class="line">                     host<span class="operator">=</span><span class="string">&quot;localhost&quot;</span><span class="punctuation">)</span> <span class="comment">#主机地址</span></span><br><span class="line">dbListTables<span class="punctuation">(</span>channel<span class="punctuation">)</span> <span class="comment">#查看数据库中的所有表</span></span><br><span class="line">df <span class="operator">&lt;-</span> dbReadTable<span class="punctuation">(</span>channel<span class="punctuation">,</span> <span class="string">&quot;mainland000001&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>forecast<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>tseries<span class="punctuation">)</span></span><br><span class="line">data <span class="operator">&lt;-</span> df<span class="operator">$</span>OPEN</span><br><span class="line">ADF<span class="operator">&lt;-</span>adf.test<span class="punctuation">(</span>data<span class="punctuation">)</span>      <span class="comment">#原序列单位根检验</span></span><br><span class="line">ADF</span><br><span class="line">ndiffs<span class="punctuation">(</span>data<span class="punctuation">)</span> </span><br><span class="line">nxts<span class="operator">&lt;-</span>diff<span class="punctuation">(</span>data<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span>   </span><br><span class="line">ADF1<span class="operator">&lt;-</span>adf.test<span class="punctuation">(</span>nxts<span class="punctuation">)</span>                      <span class="comment">#一阶差分单位根检验</span></span><br><span class="line">ADF1   </span><br><span class="line">Box.test<span class="punctuation">(</span>nxts<span class="punctuation">,</span>type <span class="operator">=</span> <span class="string">&quot;Ljung-Box&quot;</span><span class="punctuation">)</span></span><br><span class="line">acf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后acf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br><span class="line">pacf<span class="punctuation">(</span>nxts<span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&#x27;差分后pacf&#x27;</span><span class="punctuation">,</span>lag.max <span class="operator">=</span> <span class="number">60</span><span class="punctuation">)</span></span><br><span class="line">fit <span class="operator">&lt;-</span> arima<span class="punctuation">(</span>data<span class="punctuation">,</span> order<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">qqnorm<span class="punctuation">(</span>fit<span class="operator">$</span>residuals<span class="punctuation">)</span>                      <span class="comment">#QQ图</span></span><br><span class="line">qqline<span class="punctuation">(</span>fit<span class="operator">$</span>residuals<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>看一下残差的分布图如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2024/09/21/hello-world/age-20240923144536575.png"
+                     
+                ></p>
+<p>看一下预测结果发现结果并不理想：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2024/09/21/hello-world/age-20240923145251952.png"
+                     
+                ></p>
+<p>接下来导入包使用GARCH模型来进行一下改善，首先测试一下是否存在garch效应</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>FinTS<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>fGarch<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">ArchTest<span class="punctuation">(</span>data<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>p值较低，说明存在garch效应</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ARCH LM<span class="operator">-</span>test; Null hypothesis<span class="operator">:</span> no</span><br><span class="line">	ARCH effects</span><br><span class="line"></span><br><span class="line">data<span class="operator">:</span>  data</span><br><span class="line">Chi<span class="operator">-</span>squared <span class="operator">=</span> <span class="number">8139</span><span class="punctuation">,</span> df <span class="operator">=</span> <span class="number">12</span><span class="punctuation">,</span> p<span class="operator">-</span>value</span><br><span class="line"><span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br></pre></td></tr></table></figure></div>
+
+<p>可以通过如下模型拟合GARCH模型，寻找最优</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">squared_residuals<span class="operator">=</span>fit<span class="operator">$</span>residuals<span class="operator">^</span><span class="number">2</span><span class="comment">#定义残差的平方，为garch模型的参数识别做准备</span></span><br><span class="line">garch_model <span class="operator">&lt;-</span> garchFit<span class="punctuation">(</span><span class="operator">~</span><span class="number">1</span><span class="operator">+</span>garch<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span> data <span class="operator">=</span> squared_residuals<span class="punctuation">,</span> trace <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span>   <span class="comment"># GARCH模型拟合</span></span><br><span class="line">summary<span class="punctuation">(</span>garch_model<span class="punctuation">)</span></span><br><span class="line">garch_model2 <span class="operator">&lt;-</span> garchFit<span class="punctuation">(</span><span class="operator">~</span>garch<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> data <span class="operator">=</span>squared_residuals<span class="punctuation">,</span> trace <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span>   <span class="comment"># GARCH模型拟合</span></span><br><span class="line">summary<span class="punctuation">(</span>garch_model2<span class="punctuation">)</span></span><br><span class="line">garch_model3 <span class="operator">&lt;-</span> garchFit<span class="punctuation">(</span><span class="operator">~</span>garch<span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span> data <span class="operator">=</span> squared_residuals<span class="punctuation">,</span> trace <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span>   <span class="comment"># GARCH模型拟合</span></span><br><span class="line">summary<span class="punctuation">(</span>garch_model3<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>导入rugarch包进行garch-arima合并建模，这里需要注意的是其只支持arma，所以差分需要自己取，因此使用前文计算得到的nxts数据，关于分布的话对整体的影响不大，如下：</p>
+<p><strong>“norm”</strong> - 正态分布（Normal distribution）</p>
+<ul>
+<li>这是默认分布，假设残差服从正态分布。如果数据表现出尾部风险或尖峰性，这个分布可能不足够。</li>
+</ul>
+<p><strong>“snorm”</strong> - 偏态正态分布（Skew-normal distribution）</p>
+<ul>
+<li>用来处理数据中的偏斜情况，允许模型捕捉残差的非对称性。</li>
+</ul>
+<p><strong>“std”</strong> - t 分布（Student’s t distribution）</p>
+<ul>
+<li>t 分布具有重尾，可以更好地处理金融时间序列中的极端值或尖峰情况。</li>
+</ul>
+<p><strong>“sstd”</strong> - 偏态 t 分布（Skew Student-t distribution）</p>
+<ul>
+<li>偏态 t 分布可以同时处理残差的重尾性和非对称性。</li>
+</ul>
+<p><strong>“ged”</strong> - 广义误差分布（Generalized Error Distribution, GED）</p>
+<ul>
+<li>广义误差分布是一种灵活的分布，可以通过调整形状参数来控制尾部厚度，适合处理非正态残差。</li>
+</ul>
+<p><strong>“sged”</strong> - 偏态广义误差分布（Skew Generalized Error Distribution）</p>
+<ul>
+<li>这个分布既能够捕捉残差的重尾性，也可以处理非对称性。</li>
+</ul>
+<p><strong>“nig”</strong> - 正态逆高斯分布（Normal Inverse Gaussian Distribution）</p>
+<ul>
+<li>这是一种更复杂的分布，适合处理数据的尖峰、厚尾和非对称性。</li>
+</ul>
+<p><strong>“jsu”</strong> - Johnson’s SU 分布</p>
+<ul>
+<li>Johnson’s SU 分布是一种灵活的分布，适用于处理数据的偏态和重尾特性。</li>
+</ul>
+<p>因为考虑厚尾性，便使用sstd分布</p>
+<div class="highlight-container" data-rel="R"><figure class="iseeu highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>rugarch<span class="punctuation">)</span></span><br><span class="line">myspec1<span class="operator">=</span>ugarchspec<span class="punctuation">(</span>variance.model <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>model <span class="operator">=</span> <span class="string">&quot;sGARCH&quot;</span><span class="punctuation">,</span> </span><br><span class="line">                                         garchOrder <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                   mean.model <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>armaOrder <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span>archm<span class="operator">=</span><span class="built_in">T</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                   distribution.model <span class="operator">=</span> <span class="string">&quot;sstd&quot;</span><span class="punctuation">)</span></span><br><span class="line">myfit1<span class="operator">=</span>ugarchfit<span class="punctuation">(</span>myspec1<span class="punctuation">,</span>data <span class="operator">=</span> nxts<span class="punctuation">)</span></span><br><span class="line">plot<span class="punctuation">(</span>myfit1<span class="punctuation">,</span>which<span class="operator">=</span><span class="number">9</span><span class="punctuation">)</span> <span class="number">9</span>是QQ Plot</span><br><span class="line">plot<span class="punctuation">(</span>myfit1<span class="punctuation">,</span>which<span class="operator">=</span><span class="number">10</span><span class="punctuation">)</span> <span class="number">10</span>是残差自相关</span><br></pre></td></tr></table></figure></div>
+
+<p>运行之后发现虽然仍然存在离群值，但厚尾性已经得到了部分改善。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2024/09/21/hello-world/age-20240923150041002.png"
+                     
+                ></p>
+<p>预测结果如下（对差分的预测）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2024/09/21/hello-world/age-20240923152121237.png"
+                     
+                ></p>
+<p>与之前的差分预测进行比较，可以发现可信区间显著收敛了，但是预测效果仍然存在问题。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2024/09/21/hello-world/age-20240923152317343.png"
+                     
+                ></p>
 
         </div>
 
@@ -371,7 +460,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-09-23 13:16:22
+                    :</strong> 2024-09-23 15:24:31
             </li>
         
         <li>
@@ -472,7 +561,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">R语言统计分析笔记</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#R%E8%AF%AD%E8%A8%80%E4%B8%8EMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%AE%9E%E4%BE%8B%EF%BC%88%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="nav-text">R语言与MySQL数据库连接进行数据分析的实例（简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5"><span class="nav-text">数据导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%8F%98%E9%87%8FARIMA%E5%88%86%E6%9E%90"><span class="nav-text">单变量ARIMA分析</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#R%E8%AF%AD%E8%A8%80%E4%B8%8EMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%AE%9E%E4%BE%8B%EF%BC%88%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="nav-text">R语言与MySQL数据库连接进行数据分析的实例（简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5"><span class="nav-text">数据导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%8F%98%E9%87%8FARIMA%E5%88%86%E6%9E%90"><span class="nav-text">单变量ARIMA分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARIMA-GARCH%E6%A8%A1%E5%9E%8B"><span class="nav-text">ARIMA-GARCH模型</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -509,7 +598,7 @@
                     </span>
                     
                         <span>
-                            1.8k words in total
+                            2.6k words in total
                         </span>
                     
                 </p>
